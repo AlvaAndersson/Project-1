@@ -49,11 +49,12 @@ namespace Project_1
             int min = 1;
             int max = 11;
 
+
             Random random = new Random();
 
             string senasteVinnaren = "ingen har vunnit än";
 
-            String menyVal = "0";
+            string menyVal = "0";
             while (menyVal != "4")
 
             //Meny
@@ -66,6 +67,8 @@ namespace Project_1
                 Console.WriteLine("2. Visa senaste vinnaren");
                 Console.WriteLine("3. Spelets regler");
                 Console.WriteLine("4. Avsluta programmmet");
+
+                menyVal = Console.ReadLine();
 
                 switch (menyVal)
                 {
@@ -83,14 +86,62 @@ namespace Project_1
                         spelaresPoäng += random.Next(min, max);
 
                         //Spelaren får välja om hen vill dra ett till kort
-                        String tillKort = "a";
-                        while (tillKort != "a")
+                        String tillKort = " ";
+                        while (tillKort != "ja" && spelaresPoäng <= 21)
                         {
                             Console.WriteLine($"Ditt poäng är {spelaresPoäng} och datorns är {datorsPoäng}");
                             Console.WriteLine("Vill du dra ett nytt kort?");
+                            Console.WriteLine("Svara ja eller nej.");
                             tillKort = Console.ReadLine();
 
+                            switch (tillKort)
+                            {
+                                case "ja":
+                                    int nyPoäng = random.Next(min, max);
+                                    spelaresPoäng += nyPoäng;
+                                    Console.WriteLine($"Ditt kort var {nyPoäng}");
+                                    Console.WriteLine($"ditt nya poäng är {spelaresPoäng}");
+                                    break;
 
+                                case "nej":
+                                   
+                                    break;
+
+                                default:
+                                    Console.WriteLine($"Ditt svar är inte giltigt");
+                                    break;
+
+                            }
+                        }
+
+                        if (spelaresPoäng > 21)
+                        {
+                            Console.WriteLine("Du har mer än 21 poäng och har förlorat");
+                            Console.WriteLine("Bättre lycka nästa gång");
+                            Console.WriteLine();
+                            break;
+                        }
+
+                        while (datorsPoäng < spelaresPoäng && datorsPoäng <= 21)
+                        {
+                            int datorsNyaPoäng = random.Next(min, max);
+                            datorsPoäng += datorsNyaPoäng;
+                            Console.WriteLine($"Datorn drog kortet {datorsNyaPoäng}");
+                        }
+
+                        Console.WriteLine($"Din poäng är: {spelaresPoäng}");
+                        Console.WriteLine($"Datorns poäng är: {datorsPoäng}");
+
+                        if (datorsPoäng > 21)
+                        {
+                            Console.WriteLine("Grattis du har vunnit");
+                            Console.WriteLine("Skriv in ditt namn");
+                            senasteVinnaren = Console.ReadLine();
+                        }
+                        else
+                        {
+                            Console.WriteLine("Datorn har vunnit");
+                            senasteVinnaren = "Datorn";
                         }
                         break;
 
@@ -112,13 +163,17 @@ namespace Project_1
 
                     //Avsluta
                     case "4":
-                        {
-                            Console.WriteLine("Hejdå");
-                        }
-                        break;   
+
+                        Console.WriteLine();
+                        break; 
+                    
+                        
+
+                
+                       
 
                     
-:
+
                 }
             }
 
