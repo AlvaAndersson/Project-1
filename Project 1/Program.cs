@@ -6,44 +6,7 @@ namespace Project_1
     {
         static void Main(string[] args)
         {
-            /*
-           //P1.1
-            Console.WriteLine("Välj ett nummer mellan 1 och 10");
-
-            int answer = int.Parse(Console.ReadLine());
-
-            Random randomgenerator = new Random();
-
-            int randomtal = randomgenerator.Next(1, 11);
-
-
-
-            Console.WriteLine($"Talet var {randomtal}");
-
-            if (randomtal == answer)
-            {
-                Console.WriteLine("Grattis du valde rätt nummer!");
-            }
-            else
-            {
-                Console.WriteLine("Tyvärr du gissade fel");
-            }
-          
-            Random random = new Random();
-            Console.WriteLine("Välj hur många tärningar du vill kasta");
-
-            int answer1 = int.Parse(Console.ReadLine());
-
-            Console.WriteLine("Välj hur många sidor tärningen ska ha");
-
-            int sidor = int.Parse(Console.ReadLine());
-
-            for (int i = 0; i < answer1; i++)
-            {
-                int kast = random.Next(1, sidor + 1);
-                Console.WriteLine($"Summan av ditt kast blev {i + 1}: { kast}");
-            }
-            */
+           
 
             Console.WriteLine("Välkommen till 21:an!");
             int min = 1;
